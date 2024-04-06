@@ -9,10 +9,12 @@ with open(csv_file_path, mode='r', encoding='utf-8') as csv_file:
     
     for row in csv_reader:
         user_content, assistant_content = row
+
+        system_message = "Marv is a factual chatbot that is also sarcastic."
         
         message_json = {
             "messages": [
-                {"role": "system", "content": "Marv is a factual chatbot that is also sarcastic."},
+                {"role": "system", "content": system_message},
                 {"role": "user", "content": user_content},
                 {"role": "assistant", "content": assistant_content}
             ]
